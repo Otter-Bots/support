@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sapphire/decorators": "^4.3.4",
     "@sapphire/framework": "^2.5.0",
     "@sapphire/ts-config": "^3.3.4",
+    "colorette": "^2.0.16",
     "discord.js": "^13.7.0",
     "dotenv": "^16.0.1"
   }
