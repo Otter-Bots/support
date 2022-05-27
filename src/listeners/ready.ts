@@ -1,37 +1,56 @@
-import { ApplyOptions } from '@sapphire/decorators';
-import { Listener, ListenerOptions, container } from '@sapphire/framework';
-import { blue } from 'colorette';
+import type { ListenerOptions, PieceContext } from '@sapphire/framework';
+import { Listener, Store } from '@sapphire/framework';
+import { blue, gray, green, magenta, magentaBright, white, yellow } from 'colorette';
 
-@ApplyOptions<ListenerOptions>({})
+const dev = process.env.NODE_ENV !== 'production';
+
 export class UserEvent extends Listener {
-  public run() {
-    const { client } = container;
-    function banner() {
-      const layer1: string = String.raw`  _____                              _`
-      const layer2: string = String.raw` / ____|                            | |`
-      const layer3: string = String.raw`| (___  _   _ _ __  _ __   ___  _ __| |`
-      const layer4: string = String.raw` \___ \| | | | '_ \| '_ \ / _ \| '__| __|`
-      const layer5: string = String.raw` ____) | |_| | |_) | |_) | (_) | |  | |_`
-      const layer6: string = String.raw`|_____/ \__,_| .__/| .__/ \___/|_|   \__|`
-      const layer7: string = String.raw`             | |   | |`
-      const layer8: string = String.raw`             |_|   |_|`
-      console.log(blue(layer1))
-      console.log(blue(layer2))
-      console.log(blue(layer3))
-      console.log(blue(layer4))
-      console.log(blue(layer5))
-      console.log(blue(layer6))
-      console.log(blue(layer7))
-      console.log(blue(layer8))
-    }
-    function info() {
-      const commands = client.stores.get("commands").size;
-      const listeners = client.stores.get("listeners").size;
-      const args = client.stores.get("arguments").size;
-      const precondition = client.stores.get("preconditions").size;
-      console.log(blue(`Commands: ${commands} \nListeners: ${listeners} \nArguments: ${args} \nPreconditions: ${precondition}`))
-    }
-    banner()
-    info()
-  }
+	private readonly style = dev ? yellow : blue;
+
+	public constructor(context: PieceContext, options?: ListenerOptions) {
+		super(context, {
+			...options,
+			once: true
+		});
+	}
+
+	public run() {
+		this.printBanner();
+		this.printStoreDebugInformation();
+	}
+
+	private printBanner() {
+		const success = green('+');
+
+		const llc = dev ? magentaBright : white;
+		const blc = dev ? magenta : blue;
+
+		const line01 = llc('');
+		const line02 = llc('');
+		const line03 = llc('');
+
+		// Offset Pad
+		const pad = ' '.repeat(7);
+
+		console.log(
+			String.raw`
+${line01} ${pad}${blc('1.0.0')}
+${line02} ${pad}[${success}] Gateway
+${line03}${dev ? ` ${pad}${blc('<')}${llc('/')}${blc('>')} ${llc('DEVELOPMENT MODE')}` : ''}
+		`.trim()
+		);
+	}
+
+	private printStoreDebugInformation() {
+		const { client, logger } = this.container;
+		const stores = [...client.stores.values()];
+		const last = stores.pop()!;
+
+		for (const store of stores) logger.info(this.styleStore(store, false));
+		logger.info(this.styleStore(last, true));
+	}
+
+	private styleStore(store: Store<any>, last: boolean) {
+		return gray(`${last ? '└─' : '├─'} Loaded ${this.style(store.size.toString().padEnd(3, ' '))} ${store.name}.`);
+	}
 }
