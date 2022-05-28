@@ -1,6 +1,7 @@
 import type { ListenerOptions, PieceContext } from '@sapphire/framework';
 import { Listener, Store } from '@sapphire/framework';
 import { blue, gray, green, magenta, magentaBright, white, yellow } from 'colorette';
+import db from "quick.db";
 
 const dev = process.env.NODE_ENV !== 'production';
 
@@ -17,6 +18,9 @@ export class UserEvent extends Listener {
 	public run() {
 		this.printBanner();
 		this.printStoreDebugInformation();
+		this.container.client.user?.setActivity(`${db.get("current_ticket")} tickets`, {
+			type: "WATCHING"
+		  })
 	}
 
 	private printBanner() {

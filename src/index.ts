@@ -6,7 +6,7 @@ const client = new SapphireClient({
 	regexPrefix: /^(hey +)?bot[,! ]/i,
 	caseInsensitiveCommands: true,
 	logger: {
-		level: LogLevel.Debug
+		level: LogLevel.Info
 	},
 	shards: 'auto',
 	intents: [
@@ -19,7 +19,9 @@ const client = new SapphireClient({
 		'GUILD_MESSAGE_REACTIONS',
 		'DIRECT_MESSAGES',
 		'DIRECT_MESSAGE_REACTIONS'
-	]
+	],
+	loadDefaultErrorListeners: true,
+	loadMessageCommandListeners: true
 });
 
 const main = async () => {
