@@ -16,6 +16,7 @@ export class UserCommand extends Command {
 			.setStyle("SUCCESS"),
 			new MessageButton()
 			.setCustomId("rules")
+			.setLabel("Rules")
 			.setEmoji("978705745300308058")
 			.setStyle("SECONDARY")
 		)
