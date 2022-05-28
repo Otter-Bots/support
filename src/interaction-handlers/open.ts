@@ -18,7 +18,7 @@ export default class extends InteractionHandler {
         .setTitle('Open Ticket');
         const content = new TextInputComponent()
         .setCustomId('ticketOpenContent')
-        .setLabel("What' is your query?")
+        .setLabel("What do you need help with?")
         .setStyle("PARAGRAPH");
         const firstActionRow = new MessageActionRow<ModalActionRowComponent>().addComponents(content);
         modal.addComponents(firstActionRow)
