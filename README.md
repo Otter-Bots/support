@@ -1,6 +1,6 @@
 # TypeScript Sapphire Bot example
 
-This is a basic setup of a Discord bot using the [sapphire framework][sapphire] written in TypeScript
+A private ticketing bot for Otter Development, used to provide a smooth support experience. Built using the [sapphire framework][sapphire], written in TypeScript
 
 ## How to use it?
 
