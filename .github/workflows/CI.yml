@@ -28,5 +28,5 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm i -g typescript
-    - run: npm build
+    - run: tsc
     
