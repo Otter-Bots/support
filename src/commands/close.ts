@@ -11,12 +11,12 @@ export class UserCommand extends Command {
 	public chatInputRun(interaction: CommandInteraction) {
 		(async () => {
 			await interaction.channel?.delete()
-			this.container.db.subtract("current_ticket", 1)
+			this.container.db.sub("current_ticket", 1)
 			this.container.client.user?.setActivity(`${await this.container.db.get("current_ticket")} tickets`, {
 				type: "WATCHING"
 			})
 			webhookSubmit("RED", `Closed a ticket!\n${await this.container.db.get("current_ticket")} ticket's left`)
-		})
+		})();
 	}
 	public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
 		registry.registerChatInputCommand(

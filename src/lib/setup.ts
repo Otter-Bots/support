@@ -11,11 +11,11 @@ const { QuickDB } = require("quick.db");
 
 const db = new QuickDB();
 container.db = db;
-declare module "@sapphire/pieces" {
+declare module '@sapphire/pieces' {
     interface Container {
-        db: any
+      db: any;
     }
-}
+  }
 
 
 // Read env var
@@ -31,7 +31,7 @@ inspect.defaultOptions.depth = 1;
     if(await db.get("current_ticket") == null) {
         await db.set("current_ticket", 0)
     }
-})
+})();
 
 // Enable colorette
 colorette.createColors({ useColor: true });

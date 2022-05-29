@@ -6,7 +6,7 @@ const client = new SapphireClient({
 	regexPrefix: /^(hey +)?bot[,! ]/i,
 	caseInsensitiveCommands: true,
 	logger: {
-		level: LogLevel.Debug
+		level: LogLevel.Info
 	},
 	shards: 'auto',
 	intents: [

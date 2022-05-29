@@ -21,7 +21,7 @@ export class UserEvent extends Listener {
 			this.container.client.user?.setActivity(`${await this.container.db.get("current_ticket")} tickets`, {
 				type: "WATCHING"
 			})
-		})
+		})()
 	}
 
 	private printBanner() {
