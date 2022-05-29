@@ -14,11 +14,6 @@ export class UserCommand extends Command {
 			.setCustomId("ticketOpenButton")
 			.setLabel("Open a Ticket")
 			.setStyle("SUCCESS"),
-			new MessageButton()
-			.setCustomId("rules")
-			.setLabel("Rules")
-			.setEmoji("978705745300308058")
-			.setStyle("SECONDARY")
 		)
 		const embed = new MessageEmbed()
 		.setColor("GREEN")
