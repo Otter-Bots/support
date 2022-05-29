@@ -1,7 +1,6 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { CommandOptions, Command, ApplicationCommandRegistry } from '@sapphire/framework';
 import type { CommandInteraction } from 'discord.js';
-import db from "quick.db"
 import { webhookSubmit } from '../lib/webhookSubmit';
 
 @ApplyOptions<CommandOptions>({
@@ -10,12 +9,14 @@ import { webhookSubmit } from '../lib/webhookSubmit';
 })
 export class UserCommand extends Command {
 	public chatInputRun(interaction: CommandInteraction) {
-		interaction.channel?.delete()
-		db.subtract("current_ticket", 1)
-		this.container.client.user?.setActivity(`${db.get("current_ticket")} tickets`, {
-			type: "WATCHING"
+		(async () => {
+			await interaction.channel?.delete()
+			this.container.db.subtract("current_ticket", 1)
+			this.container.client.user?.setActivity(`${await this.container.db.get("current_ticket")} tickets`, {
+				type: "WATCHING"
+			})
+			webhookSubmit("RED", `Closed a ticket!\n${await this.container.db.get("current_ticket")} ticket's left`)
 		})
-		webhookSubmit("RED", `Closed a ticket!\n${db.get("current_ticket")} ticket's left`)
 	}
 	public override registerApplicationCommands(registry: ApplicationCommandRegistry) {
 		registry.registerChatInputCommand(
