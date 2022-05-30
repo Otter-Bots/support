@@ -1,4 +1,4 @@
-import { SharedCommand } from '@otterbots/sapphire-components/dist';
+import { SharedCommand } from "@otterbots/sapphire-components"
 import { ApplyOptions } from '@sapphire/decorators';
 import type { CommandOptions, ApplicationCommandRegistry } from '@sapphire/framework';
 import type { CommandInteraction } from 'discord.js';

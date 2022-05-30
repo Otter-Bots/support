@@ -1,5 +1,5 @@
 import { ApplyOptions } from '@sapphire/decorators';
-import { SharedCommand } from '@otterbots/sapphire-components/dist';
+import { SharedCommand } from '@otterbots/sapphire-components';
 import type { CommandOptions} from '@sapphire/framework';
 import { Message, MessageActionRow, MessageButton, MessageEmbed } from 'discord.js';
 
