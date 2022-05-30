@@ -6,6 +6,7 @@
   "license": "UNLICENSE",
   "dependencies": {
     "@discordjs/collection": "^0.6.0",
+    "@otterbots/sapphire-components": "^1.x",
     "@sapphire/decorators": "^4.0.2",
     "@sapphire/discord-utilities": "^2.6.0",
     "@sapphire/discord.js-utilities": "^4.4.0",

@@ -1,5 +1,6 @@
+import { SharedCommand } from '@otterbots/sapphire-components/dist';
 import { ApplyOptions } from '@sapphire/decorators';
-import { CommandOptions, Command, ApplicationCommandRegistry } from '@sapphire/framework';
+import type { CommandOptions, ApplicationCommandRegistry } from '@sapphire/framework';
 import type { CommandInteraction } from 'discord.js';
 import { webhookSubmit } from '../lib/webhookSubmit';
 
@@ -7,7 +8,7 @@ import { webhookSubmit } from '../lib/webhookSubmit';
 	description: 'Close a ticket!',
 	preconditions: ['SupportOnly']
 })
-export class UserCommand extends Command {
+export class UserCommand extends SharedCommand {
 	public chatInputRun(interaction: CommandInteraction) {
 		(async () => {
 			await interaction.channel?.delete()

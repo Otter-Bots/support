@@ -1,12 +1,13 @@
 import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions} from '@sapphire/framework';
+import type { CommandOptions} from '@sapphire/framework';
+import { SharedCommand } from '@otterbots/sapphire-components/dist';
 import { Message, MessageActionRow, MessageButton, MessageEmbed } from 'discord.js';
 
 @ApplyOptions<CommandOptions>({
 	description: 'A basic command',
 	preconditions: ['OwnerOnly']
 })
-export class UserCommand extends Command {
+export class UserCommand extends SharedCommand {
 	public async messageRun(message: Message) {
 		const row = new MessageActionRow()
 		.addComponents(
