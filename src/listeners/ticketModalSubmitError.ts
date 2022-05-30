@@ -6,8 +6,5 @@ import { webhookSubmit } from '../lib/webhookSubmit';
 export class UserEvent extends Listener {
   public async run(e: any) {
     webhookSubmit("RED", `Error: ${e}`)
-    this.container.client.user?.setActivity(`${await this.container.db.get("current_ticket")} tickets`, {
-      type: "WATCHING"
-    })
   }
 }

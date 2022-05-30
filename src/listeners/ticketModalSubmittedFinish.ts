@@ -6,13 +6,8 @@ import { webhookSubmit } from '../lib/webhookSubmit';
   event: "ticketModalSubmittedFinish"
 })
 export class UserEvent extends Listener {
-  public async run(content: any) {
-    console.log("Test")    
+  public async run(content: any) {   
       this.container.db.add("current_ticket", 1)
-      console.log(await this.container.db.get("current_ticket"))
       webhookSubmit("GREEN", `Ticket Query: ${content}`)
-      this.container.client.user?.setActivity(`${await this.container.db.get("current_ticket")} tickets`, {
-        type: "WATCHING"
-      })
   }
 }
