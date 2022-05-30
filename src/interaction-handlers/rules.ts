@@ -13,6 +13,6 @@ export default class extends InteractionHandler {
 	}
 
 	public async run(interaction: ButtonInteraction) {
-        interaction.reply({content: "**Otter Bots Support**\nThis server is a place for you to get help with the Discord Bots Otter Development has released. We have a simple set of rules that we ask everyone to follow when opening a ticket.\n\n**Guidelines**\n• Be respectful to the support team, we are trying to help you.\n• Provide a detailed description of your issue/question.\n• Have patience and don't spam @mentions, opening a ticket already notifies us.", ephemeral: true})
+        interaction.reply({content: "**Otter Bots Support**\nThis server is a place for you to get help with the Discord Bots Otter Bots has released. We have a simple set of rules that we ask everyone to follow when opening a ticket.\n\n**Guidelines**\n• Be respectful to the support team, we are trying to help you.\n• Provide a detailed description of your issue/question.\n• Have patience and don't spam @mentions, opening a ticket already notifies us.", ephemeral: true})
     }
 }
