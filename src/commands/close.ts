@@ -12,7 +12,7 @@ export class UserCommand extends SharedCommand {
 	public chatInputRun(interaction: CommandInteraction) {
 		(async () => {
 			await interaction.channel?.delete()
-			this.container.db.sub("current_ticket", 1)
+			await this.container.db.sub("current_ticket", 1)
 			this.container.client.user?.setActivity(`${await this.container.db.get("current_ticket")} tickets`, {
 				type: "WATCHING"
 			})
