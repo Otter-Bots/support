@@ -15,7 +15,7 @@ export class UserEvent extends Listener {
       const userId: any = interaction.user.id;
       const content = interaction.fields.getTextInputValue('ticketOpenContent')
       const channel = await interaction.guild?.channels.create(`Ticket-${await this.container.db.get("ticket_num")}`).catch((e) => console.log(e));
-      channel?.setParent("980455525537972274")
+      channel?.setParent(`${process.env.TICKET_CATEGORY}`)
       channel?.permissionOverwrites.edit(guildId, { VIEW_CHANNEL: false });
       channel?.permissionOverwrites.edit(userId, { VIEW_CHANNEL: true});
 
