@@ -22,7 +22,7 @@ export class UserCommand extends SharedCommand {
 				description: this.description
 			},
 			{
-				guildIds: ['974626194379124736'],
+				guildIds: ['974626194379124736', '1001130887204847738'],
 				idHints: ['979994744807620688']
 			}
 		);
