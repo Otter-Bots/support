@@ -20,7 +20,7 @@ export class UserEvent extends Listener {
       channel?.permissionOverwrites.edit(userId, { VIEW_CHANNEL: true});
 
       await this.container.db.add("ticket_num", 1)
-      channel?.send(`Query:\n${content}`)
+      channel?.send(`**Query:**\n${content}`)
       interaction.reply({content: "Done!", ephemeral: true})
       client.emit("ticketModalSubmittedFinish", content)
     } catch (e) {
