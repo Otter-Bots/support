@@ -22,7 +22,7 @@ export class UserCommand extends SharedCommand {
 		)
 		const embed = new MessageEmbed()
 		.setColor("GREEN")
-		.setDescription("**Want a custom bot?**\nOpen a ticket by clicking the first button and our team will reply as soon as possible! We'd appreciate it if you could go into much detail about the bot you want.")
+		.setDescription("**Want a custom bot?**\nIf you would like to order a custom bot, please open a ticket by clicking the first button below and our team will reply as soon as possible!")
 		message.channel.send({ embeds: [embed], components: [row]})
 	}
 }
