@@ -7,8 +7,5 @@ Support's code is open-sourced to allow the anyone to contribute to its developm
 ## Selfhosting
 Self-hosting a private instance of Support is allowed. However, trying to grow and/or provide support for a self-hosted instance of Support is not allowed.
 
-### Resources
-> [Website](https://otterbots.xyz)\
-> [Discord Server](https://discord.com/invite/XtX9wx3qre)
 
 
