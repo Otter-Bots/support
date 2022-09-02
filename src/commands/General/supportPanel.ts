@@ -23,7 +23,7 @@ export class UserCommand extends SharedCommand {
 		)
 		const embed = new MessageEmbed()
 		.setColor("GREEN")
-		.setDescription("**Support Desk**\nOpen a support ticket by clicking the first button and our support team will get back to you as soon as possible.")
+		.setDescription("**Support Desk**\nOpen a support ticket by clicking the first button below and our support team will get back to you as soon as possible.")
 		message.channel.send({ embeds: [embed], components: [row]})
 	}
 }
