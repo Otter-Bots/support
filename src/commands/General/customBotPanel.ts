@@ -15,6 +15,10 @@ export class UserCommand extends SharedCommand {
 			.setCustomId("ticketOpenButton")
 			.setLabel("Open a Ticket")
 			.setStyle("SUCCESS"),
+			new MessageButton()
+			.setCustomId("info")
+			.setLabel("Info")
+			.setStyle("SUCCESS"),
 		)
 		const embed = new MessageEmbed()
 		.setColor("GREEN")
