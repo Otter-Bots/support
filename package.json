@@ -7,7 +7,7 @@
   "dependencies": {
     "@discordjs/collection": "^1.0.0",
     "@otterbots/sapphire-components": "^2.0.0",
-    "@sapphire/decorators": "^4.0.2",
+    "@sapphire/decorators": "^6.0.0",
     "@sapphire/discord-utilities": "^2.6.0",
     "@sapphire/discord.js-utilities": "^4.4.0",
     "@sapphire/fetch": "^2.0.4",
